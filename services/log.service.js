@@ -15,7 +15,16 @@ const printHelp = () => {
     -t [API_KEY] for token
     `)
 }
-export {printError, printSucces, printHelp}
+const printWeather = (response) => {
+    console.log(dedent`
+    ${chalk.yellowBright('WEATHER')} City weather ${response.name}
+    Description: ${response.weather[0].description}
+    Temperature: ${response.main.temp} (feel like ${response.main.feels_like})
+    Humidity: ${response.main.humidity}%
+    Wind speed: ${response.wind.speed}
+    `)
+}
+export {printError, printSucces, printHelp, printWeather}
 
 
 
